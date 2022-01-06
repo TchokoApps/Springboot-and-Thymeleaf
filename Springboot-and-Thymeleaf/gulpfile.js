@@ -43,3 +43,6 @@ function reload(done) {
     browserSync.reload();
     done();
 }
+gulp.task('copy-svg', () => gulp.src(['src/main/resources/**/*.svg'])
+    .pipe(gulp.dest('target/classes/')));
+gulp.task('copy-svg+css-and-reload', gulp.series('copy-svg', 'copy-css', reload));
